@@ -1,0 +1,54 @@
+@charset "UTF-8";
+@import url("../common.css");
+
+/* ////////////// */
+/* news/list.css */
+/* ////////////// */
+#title-img>div{
+	min-height: 197px;
+	background-image: url("/images/header_bg_1.jpg");
+	background-repeat: no-repeat;
+	background-size: 1920px auto;
+	background-position: 50% 0;
+	background-color: #000;
+}
+
+#page-tit p{
+	font-size: 24px;
+	font-weight: 700;
+	padding: 40px 0;
+}
+#news{
+	margin-bottom: 40px;
+}
+#news ul{
+	border-bottom: 1px solid #eaecef;
+	padding: 0.7em 0 0.5em;
+}
+#news ul.tit{
+	border-top: 2px solid #eaecef;
+	padding: 0.8em 0 0.5em;
+	font-weight: 700;
+}
+#news ul li:nth-child(1){
+	flex: 1;
+}
+#news ul li:nth-child(2){
+	flex: 6;
+}
+#news ul li:nth-child(3){
+	flex: 1;
+}
+#news ul li:nth-child(4){
+	flex: 2;
+}
+#news ul li:nth-child(5){
+	flex: 2;
+}
+
+/* 글쓰기버튼 */
+#news .wrap .btn{
+	/* 오른쪽정렬 */
+	text-align: right;
+	margin-bottom: 10px;
+}

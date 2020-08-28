@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:include="/commons/head::commonHead"></th:block>
+	<link rel="stylesheet" type="text/css" href="/css/news/detail.css">
+</head>
+<body>
+	<th:block th:insert="/commons/header::header"></th:block>
+	<section id="title-img">
+		<h1>페이지 타이틀 이미지</h1>
+		<div>
+		</div>
+	</section>
+	<main>
+		<h1>mybatis로 처리한 게시글</h1>
+		<div class="view-width">
+			<section id="page-tit">
+				<h1>페이지제목</h1>
+				<p>board 게시판 상세정보</p>
+			</section>
+			<section id="news">
+				<h1>게시글 내용</h1>
+				<!-- 상세페이지 정보 -->
+				<div class="wrap" id="detail">
+					<ul class="news-detail">
+						<li class="subject">[[${dto.subject}]]</li>
+						<li class="info flex">
+							<span class="pipe writer">[[${dto.writer}]]</span>
+							<span class="pipe">[[${#temporals.format(dto.reg_date, 'yyyy. MM. dd. HH:mm:ss')}]]</span>
+							<span>조회 [[${dto.count}]]</span>
+						</li>
+						<li class="content">[[${dto.content}]]</li>
+					</ul>
+					<div class="flex-between">
+						<a href="/news/list">
+							<button type="button" class="btn-style">글목록</button>
+						</a>
+						<button id="btn-edit" type="button" class="btn-style">수정</button>
+						<a th:href="|/news/delete/${dto.no}|">
+							<button id="btn-delete" type="button" class="btn-style">삭제</button>
+						</a>
+					</div>
+				</div>
+				<!-- 수정 스크립트 -->
+				<script type="text/javascript">
+					$(function(){
+						$("#edit").hide();
+						$("#btn-edit").click(function(){
+							$("#detail").hide();
+							$("#edit").show();
+						});
+					});
+				</script>
+				<!-- 수정페이지 -->
+				<form class="wrap" id="edit" action="/news/edit" method="post">
+					<input type="hidden" name="no" th:value="${dto.no}">
+					<ul class="news-detail">
+						<li class="subject">
+							<input type="text" name="subject" th:value="${dto.subject}">
+						</li>
+						<li class="info flex">
+							<span class="pipe writer">[[${dto.writer}]]</span>
+							<span class="pipe">[[${#temporals.format(dto.reg_date, 'yyyy. MM. dd. HH:mm:ss')}]]</span>
+							<span>조회 [[${dto.count}]]</span>
+						</li>
+						<li class="content">
+							<textarea rows="10" cols="100" name="content">[[${dto.content}]]</textarea>
+						</li>
+					</ul>
+					<div class="flex-between">
+						<button type="button" class="btn-style" onclick="history.go(-1)">글목록</button>
+						<div>
+							<button type="submit" class="btn-style">수정완료</button>
+						</div>
+					</div>
+				</form>
+			</section>
+		</div>
+	</main>
+	<th:block th:insert="/commons/footer::footer"></th:block>
+</body>
+</html>
