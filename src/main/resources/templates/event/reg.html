@@ -22,6 +22,8 @@
 				<h1>게시글 내용</h1>
 				<div class="wrap">
 					<form class="write-form" action="/event/reg" method="post" enctype="multipart/form-data">
+					<!-- enctype이 있어야 파일 전송 가능 -->
+					<!-- method: 전송 방식, action: 전송 목적지, enctype: 전송되는 데이터 형식 -->
 						<input name="files" type="file">
 						<input name="l_text" placeholder="왼쪽이미지에 적용할 글 입력">
 						

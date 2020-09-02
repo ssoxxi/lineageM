@@ -24,9 +24,8 @@ $(function(){
 	}
 	
 	$("#event").hover(e_stop, function(){
-		if(e_ea>1){}
+		if(e_ea>1)
 			e_slide=setTimeout(e_start,5000);
-		}
 	});
 	e_bullet();
 	$(".e-next").click(e_next);
